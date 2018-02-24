@@ -25,6 +25,10 @@
     "@ionic-native/status-bar": "4.4.0",
     "@ionic/pro": "1.0.20",
     "@ionic/storage": "2.1.3",
+    "cordova-android": "^7.0.0",
+    "cordova-plugin-ionic": "^4.0.0",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-whitelist": "^1.3.3",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "rxjs": "5.5.2",
@@ -35,5 +39,18 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-ionic": {
+        "APP_ID": "29585ee2",
+        "CHANNEL_NAME": "Master",
+        "UPDATE_METHOD": "background"
+      },
+      "cordova-plugin-whitelist": {}
+    },
+    "platforms": [
+      "android"
+    ]
+  }
 }
