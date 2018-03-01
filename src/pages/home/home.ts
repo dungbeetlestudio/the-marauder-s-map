@@ -1,14 +1,35 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController, NavParams } from 'ionic-angular';
+
+declare const AMap
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+export class HomePage {
+  map: any
+
+  constructor(public navCtrl: NavController,
+    public modalCtrl: ModalController) {
 
   }
 
+  ionViewDidLoad() {
+    this.map = new AMap.Map('container', {
+      resizeEnable: true
+    })
+
+    this.modalCtrl.create(SignInPage).present();
+  }
+}
+
+@Component({
+  templateUrl: 'sign-in.html'
+})
+
+export class SignInPage {
+  constructor(params: NavParams) {
+  }
 }
