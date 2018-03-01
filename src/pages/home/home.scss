@@ -3,7 +3,10 @@ page-home {
 }
 
 .sign-in{
-    align-content: center;
-    position: relative;
-    
+    position: absolute;
+    margin-left:500px;
+    margin-top:400px;
+    border: solid black 1px;
+    border-radius: 5px;
+    background-color: blue;
 }

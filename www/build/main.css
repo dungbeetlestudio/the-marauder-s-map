@@ -25679,10 +25679,12 @@ ion-navbar.toolbar {
 }
 
 .sign-in {
-  -webkit-align-content: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  position: relative;
+  position: absolute;
+  margin-left: 500px;
+  margin-top: 400px;
+  border: solid black 1px;
+  border-radius: 5px;
+  background-color: blue;
 }
 
 .tutorial-page .toolbar-background {
