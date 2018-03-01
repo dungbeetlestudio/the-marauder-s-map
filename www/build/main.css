@@ -25678,6 +25678,13 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.sign-in {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  position: relative;
+}
+
 .tutorial-page .toolbar-background {
   background: #fff;
   border-color: transparent;

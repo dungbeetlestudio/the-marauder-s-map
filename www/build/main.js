@@ -39,7 +39,6 @@ webpackEmptyAsyncContext.id = 150;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return SignInPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(54);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -62,28 +61,15 @@ var HomePage = (function () {
         this.map = new AMap.Map('container', {
             resizeEnable: true
         });
-        this.modalCtrl.create(SignInPage).present();
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      the Marauder\'s Map\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div id="container"></div>\n  <div id="tip"></div>\n\n  <div class="sign-in"></div>\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      the Marauder\'s Map\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div id="container"></div>\n  <div id="tip">ff</div>\n  <div class="sign-in">hello world!</div>\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* ModalController */]])
     ], HomePage);
     return HomePage;
-}());
-
-var SignInPage = (function () {
-    function SignInPage(params) {
-    }
-    SignInPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            templateUrl: 'sign-in.html'
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
-    ], SignInPage);
-    return SignInPage;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -139,8 +125,7 @@ var AppModule = (function () {
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_test_test__["a" /* TestPage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["b" /* SignInPage */]
+                __WEBPACK_IMPORTED_MODULE_7__pages_test_test__["a" /* TestPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -152,8 +137,7 @@ var AppModule = (function () {
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_test_test__["a" /* TestPage */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["b" /* SignInPage */]
+                __WEBPACK_IMPORTED_MODULE_7__pages_test_test__["a" /* TestPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
@@ -206,7 +190,7 @@ var MyApp = (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
 }());

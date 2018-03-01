@@ -13,8 +13,7 @@ import { TestPage } from '../pages/test/test';
   declarations: [
     MyApp,
     HomePage,
-    TestPage,
-    SignInPage
+    TestPage
   ],
   imports: [
     BrowserModule,
@@ -24,8 +23,7 @@ import { TestPage } from '../pages/test/test';
   entryComponents: [
     MyApp,
     HomePage,
-    TestPage,
-    SignInPage
+    TestPage
   ],
   providers: [
     StatusBar,
