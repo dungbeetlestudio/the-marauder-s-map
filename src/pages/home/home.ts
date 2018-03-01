@@ -20,16 +20,6 @@ export class HomePage {
     this.map = new AMap.Map('container', {
       resizeEnable: true
     })
-
-    this.modalCtrl.create(SignInPage).present();
   }
 }
 
-@Component({
-  templateUrl: 'sign-in.html'
-})
-
-export class SignInPage {
-  constructor(params: NavParams) {
-  }
-}
