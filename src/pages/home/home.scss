@@ -1,12 +1,37 @@
 page-home {
+    font-family: cursive;
+    text-align: center;
 
-}
+    .sign-in {
+        border: solid black 2px;
+        border-radius:50px 5px 100px 5px/5px 20px 5px 20px  ;
+        background:rgba(255,255,255,0.75);
+        width:90%;
+        height: 50%;
+        z-index: auto;
+        position: absolute;
+        left: 5%;
+        top: 25%;
+    
+        .hint {
+            margin-bottom: 20px;
+        }
 
-.sign-in{
-    position: absolute;
-    margin-left:500px;
-    margin-top:400px;
-    border: solid black 1px;
-    border-radius: 5px;
-    background-color: blue;
+        .phone-numbers {
+            margin-bottom: 20px;
+            border: solid black 2px;
+            border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+        }
+
+        .next {
+            margin-bottom: 20px;
+            border: solid black 2px;
+            border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+         
+            background: #9fb5f8;
+            width: 63px;
+            height: 27px;
+            box-shadow: 2px 2px black;
+        }
+    }
 }

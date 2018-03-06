@@ -53,8 +53,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HomePage = (function () {
-    function HomePage(navCtrl, modalCtrl) {
+    function HomePage(navCtrl, popoverCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
+        this.popoverCtrl = popoverCtrl;
         this.modalCtrl = modalCtrl;
     }
     HomePage.prototype.ionViewDidLoad = function () {
@@ -64,9 +65,10 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      the Marauder\'s Map\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div id="container"></div>\n  <div id="tip">ff</div>\n  <div class="sign-in">hello world!</div>\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      the Marauder\'s Map\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div id="container"></div>\n\n  <div id="tip"></div>\n\n  <div class="sign-in">\n\n    <div class="hint">Please input your phone numbers!</div>\n\n    <div><input class="phone-numbers" type="text"/></div>\n\n    <div><button class="next">next</button></div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* PopoverController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* ModalController */]])
     ], HomePage);
     return HomePage;
@@ -188,7 +190,7 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -233,7 +235,7 @@ var TestPage = (function () {
         ];
     }
     TestPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\test\test.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Slides</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="tutorial-page">\n\n    <ion-slides pager>\n\n        <ion-slide *ngFor="let slide of slides">\n\n            <ion-toolbar>\n\n                <ion-buttons end>\n\n                    <button ion-button color="primary">Skip</button>\n\n                </ion-buttons>\n\n            </ion-toolbar>\n\n            <img [src]="slide.image" class="slide-image" />\n\n            <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n            <p [innerHTML]="slide.description"></p>\n\n        </ion-slide>\n\n        \n\n        <ion-slide>\n\n            <ion-toolbar>\n\n            </ion-toolbar>\n\n            <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />\n\n            <h2 class="slide-title">Ready to Play?</h2>\n\n            <button ion-button large clear icon-end color="primary">\n\n                Continue\n\n                <ion-icon name="arrow-forward"></ion-icon>\n\n            </button>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\test\test.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\test\test.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Slides</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="tutorial-page">\n\n    <ion-slides pager>\n\n        <ion-slide *ngFor="let slide of slides">\n\n            <ion-toolbar>\n\n                <ion-buttons end>\n\n                    <button ion-button color="primary">Skip</button>\n\n                </ion-buttons>\n\n            </ion-toolbar>\n\n            <img [src]="slide.image" class="slide-image" />\n\n            <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n            <p [innerHTML]="slide.description"></p>\n\n        </ion-slide>\n\n        \n\n        <ion-slide>\n\n            <ion-toolbar>\n\n            </ion-toolbar>\n\n            <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />\n\n            <h2 class="slide-title">Ready to Play?</h2>\n\n            <button ion-button large clear icon-end color="primary">\n\n                Continue\n\n                <ion-icon name="arrow-forward"></ion-icon>\n\n            </button>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\test\test.html"*/
         })
     ], TestPage);
     return TestPage;

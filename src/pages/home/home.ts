@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, NavParams } from 'ionic-angular';
+import { NavController, ViewController, ModalController, PopoverController, NavParams, Modal } from 'ionic-angular';
 
 declare const AMap
 
@@ -12,6 +12,7 @@ export class HomePage {
   map: any
 
   constructor(public navCtrl: NavController,
+    public popoverCtrl: PopoverController,
     public modalCtrl: ModalController) {
 
   }
@@ -22,4 +23,3 @@ export class HomePage {
     })
   }
 }
-
