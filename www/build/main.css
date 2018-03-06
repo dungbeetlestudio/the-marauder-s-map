@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25680,7 +25681,6 @@ ion-navbar.toolbar {
 
 page-home {
   font-family: cursive;
-  text-align: center;
 }
 
 page-home .sign-in {
@@ -25693,19 +25693,55 @@ page-home .sign-in {
   position: absolute;
   left: 5%;
   top: 25%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /*Flex布局*/
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /*指定垂直居中*/
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-page-home .sign-in .hint {
+page-home .sign-in .step-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  /*Flex布局*/
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /*指定垂直居中*/
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-home .sign-in .step-1 .hint {
   margin-bottom: 20px;
 }
 
-page-home .sign-in .phone-numbers {
+page-home .sign-in .step-1 .phone-numbers {
   margin-bottom: 20px;
   border: solid black 2px;
   border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
 }
 
-page-home .sign-in .next {
+page-home .sign-in .step-1 .next {
   margin-bottom: 20px;
   border: solid black 2px;
   border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
@@ -25714,6 +25750,18 @@ page-home .sign-in .next {
   height: 27px;
   -webkit-box-shadow: 2px 2px black;
   box-shadow: 2px 2px black;
+}
+
+page-home .sign-in .step-2 {
+  display: none;
+}
+
+page-home .sign-in .step-3 {
+  display: none;
+}
+
+page-home .sign-in .step-exit {
+  display: none;
 }
 
 .tutorial-page .toolbar-background {
