@@ -11,6 +11,7 @@ page-home {
         position: absolute;
         left: 5%;
         top: 25%;
+
         display: flex;        
         align-items: center;
         justify-content: center;
@@ -39,16 +40,22 @@ page-home {
                 width: 63px;
                 height: 27px;
                 box-shadow: 2px 2px black;
-                font-size: 10px;
                 color: black;
             }
         }
 
         .step-2 {
             display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
             .hint {
                 text-align: center;
+            }
+
+            .progress{
+                margin-top:20px;
             }
         }
 
@@ -64,7 +71,7 @@ page-home {
 
             .code-group {
                 margin-top:20px;
-                margin-bottom: 40px;
+
                 .code {
                     border: solid black 2px;
                     border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;                
@@ -72,7 +79,6 @@ page-home {
                     height: 27px;
                     text-align: center;
                 }
-                
             } 
         }
 
@@ -82,11 +88,13 @@ page-home {
             align-items: center;
             justify-content: center;
 
+            z-index: auto;
             .hint {
-                margin-bottom:65px;
+                text-align: center;
             }
 
             .yes {
+                margin-top: 20px;
                 border: solid black 2px;
                 border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
                 background: #9fb5f8;
@@ -98,6 +106,7 @@ page-home {
             }
 
             .no {
+                margin-top:20px;
                 margin-left: 20px;
                 border: solid black 2px;
                 border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;

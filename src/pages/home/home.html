@@ -12,19 +12,22 @@
   <div class="sign-in">
     <div class="step-1">
       <div class="hint">Please input your phone numbers!</div>
-      <input class="phone-numbers" type="text" />
-      <button class="next" (click)="next()">Next</button>
+      <div>
+        <input class="phone-numbers" maxlength="11" type="number" />
+        <button class="next" (click)="next()">Next</button>
+      </div>
     </div>
     <div class="step-2">
       <div class="hint">Wating for verification code...</div>
+      <div class="progress">15 second</div>
     </div>
     <div class="step-3">
       <div class="hint">Please input verification code that you received!</div>
       <div class="code-group">
-        <input class="code" />
-        <input class="code" />
-        <input class="code" />
-        <input class="code" />
+        <input class="code" maxlength="1" type="number"/>
+        <input class="code" maxlength="1" type="number"/>
+        <input class="code" maxlength="1" type="number"/>
+        <input class="code" maxlength="1" type="number"/>
       </div>
     </div>
     <div class="step-exit">

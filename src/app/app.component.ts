@@ -13,7 +13,6 @@ export class MyApp {
   rootPage: any = HomePage;
   backButtonPressed: boolean
 
-
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     events: Events) {
     platform.ready().then(() => {
@@ -21,6 +20,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
       platform.registerBackButtonAction(() => {
         //双击退出提示框 
         if (this.backButtonPressed) {
@@ -29,6 +29,7 @@ export class MyApp {
           //          this.backgroundMode.moveToBackground()
           events.publish('appExit', '', '')
         } else {
+          console.log('back')
           this.backButtonPressed = true
           setTimeout(() => this.backButtonPressed = false, 1000)//2秒内没有再次点击返回则将触发标志标记为false
         }
