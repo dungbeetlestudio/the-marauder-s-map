@@ -1,5 +1,6 @@
 page-home {
     font-family: cursive;
+
     .sign-in {
         border: solid black 2px;
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
@@ -10,42 +11,68 @@ page-home {
         position: absolute;
         left: 5%;
         top: 25%;
-        display: flex;
-        /*Flex布局*/
+        display: flex;        
         align-items: center;
-        /*指定垂直居中*/
         justify-content: center;
+
         .step-1 {
             display: flex;
-            /*Flex布局*/
             flex-direction: column;
             align-items: center;
-            /*指定垂直居中*/
             justify-content: center;
+            
             .hint {
-                margin-bottom: 20px;
             }
+
             .phone-numbers {
-                margin-bottom: 20px;
+                margin-top: 20px;
                 border: solid black 2px;
                 border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
             }
+
             .next {
-                margin-bottom: 20px;
+                margin-top: 20px;
                 border: solid black 2px;
                 border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
                 background: #9fb5f8;
                 width: 63px;
                 height: 27px;
                 box-shadow: 2px 2px black;
+                font-size: 10px;
+                color: black;
+                
             }
         }
+
         .step-2 {
             display: none;
+
+            .hint {
+            }
         }
+
         .step-3 {
             display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            .hint {
+            }
+
+            .code-group {
+                margin-top:20px;
+                margin-bottom: 40px;
+                .code {
+                    border: solid black 2px;
+                    border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;                
+                    width: 25px;
+                    height: 27px;
+                    text-align: center;
+                }
+            }
         }
+
         .step-exit {
             display: none;
         }

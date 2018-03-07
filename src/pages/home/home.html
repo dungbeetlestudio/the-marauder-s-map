@@ -13,19 +13,25 @@
     <div class="step-1">
       <div class="hint">Please input your phone numbers!</div>
       <input class="phone-numbers" type="text" />
-      <button class="next">next</button>
+      <button class="next" (click)="next()">Next</button>
     </div>
     <div class="step-2">
       <div class="hint">Wating for verification code...</div>
     </div>
     <div class="step-3">
       <div class="hint">Please input verification code that you received!</div>
+      <div class="code-group">
+        <input class="code" />
+        <input class="code" />
+        <input class="code" />
+        <input class="code" />
+      </div>
     </div>
   </div>
   <div class="step-exit">
     <div class="hint">Please input your phone numbers!</div>
-    <button class="next">next</button>
-    <button class="next">next</button>
+    <button class="next">Yes</button>
+    <button class="next">No</button>
   </div>
 
 

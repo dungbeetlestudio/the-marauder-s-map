@@ -41,6 +41,8 @@ webpackEmptyAsyncContext.id = 150;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(54);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -52,26 +54,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HomePage = (function () {
-    function HomePage(navCtrl, popoverCtrl, modalCtrl) {
+    function HomePage(navCtrl, loadingCtrl) {
         this.navCtrl = navCtrl;
-        this.popoverCtrl = popoverCtrl;
-        this.modalCtrl = modalCtrl;
+        this.loadingCtrl = loadingCtrl;
     }
     HomePage.prototype.ionViewDidLoad = function () {
         this.map = new AMap.Map('container', {
             resizeEnable: true
         });
     };
+    HomePage.prototype.next = function () {
+        __WEBPACK_IMPORTED_MODULE_2_jquery__('.step-1').css('display', 'none');
+        __WEBPACK_IMPORTED_MODULE_2_jquery__('.step-2').css('display', 'none');
+        __WEBPACK_IMPORTED_MODULE_2_jquery__('.step-3').css('display', 'flex');
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      the Marauder\'s Map\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div id="container"></div>\n\n  <div id="tip"></div>\n\n  <div class="sign-in">\n\n    <div class="step-1">\n\n      <div class="hint">Please input your phone numbers!</div>\n\n      <input class="phone-numbers" type="text" />\n\n      <button class="next">next</button>\n\n    </div>\n\n    <div class="step-2">\n\n      <div class="hint">Wating for verification code...</div>\n\n    </div>\n\n    <div class="step-3">\n\n      <div class="hint">Please input verification code that you received!</div>\n\n    </div>\n\n  </div>\n\n  <div class="step-exit">\n\n    <div class="hint">Please input your phone numbers!</div>\n\n    <button class="next">next</button>\n\n    <button class="next">next</button>\n\n  </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      the Marauder\'s Map\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <div id="container"></div>\n\n  <div id="tip"></div>\n\n  <div class="sign-in">\n\n    <div class="step-1">\n\n      <div class="hint">Please input your phone numbers!</div>\n\n      <input class="phone-numbers" type="text" />\n\n      <button class="next" (click)="next()">Next</button>\n\n    </div>\n\n    <div class="step-2">\n\n      <div class="hint">Wating for verification code...</div>\n\n    </div>\n\n    <div class="step-3">\n\n      <div class="hint">Please input verification code that you received!</div>\n\n      <div class="code-group">\n\n        <input class="code" />\n\n        <input class="code" />\n\n        <input class="code" />\n\n        <input class="code" />\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div class="step-exit">\n\n    <div class="hint">Please input your phone numbers!</div>\n\n    <button class="next">Yes</button>\n\n    <button class="next">No</button>\n\n  </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* ModalController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* LoadingController */]) === "function" && _b || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -104,7 +110,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(193);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_test_test__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_test_test__ = __webpack_require__(272);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -190,7 +196,7 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -201,7 +207,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 271:
+/***/ 272:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -235,7 +241,7 @@ var TestPage = (function () {
         ];
     }
     TestPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\test\test.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Slides</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="tutorial-page">\n\n    <ion-slides pager>\n\n        <ion-slide *ngFor="let slide of slides">\n\n            <ion-toolbar>\n\n                <ion-buttons end>\n\n                    <button ion-button color="primary">Skip</button>\n\n                </ion-buttons>\n\n            </ion-toolbar>\n\n            <img [src]="slide.image" class="slide-image" />\n\n            <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n            <p [innerHTML]="slide.description"></p>\n\n        </ion-slide>\n\n        \n\n        <ion-slide>\n\n            <ion-toolbar>\n\n            </ion-toolbar>\n\n            <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />\n\n            <h2 class="slide-title">Ready to Play?</h2>\n\n            <button ion-button large clear icon-end color="primary">\n\n                Continue\n\n                <ion-icon name="arrow-forward"></ion-icon>\n\n            </button>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Desktop\the-marauder-s-map\src\pages\test\test.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\test\test.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title>Slides</ion-title>\n\n    </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content class="tutorial-page">\n\n    <ion-slides pager>\n\n        <ion-slide *ngFor="let slide of slides">\n\n            <ion-toolbar>\n\n                <ion-buttons end>\n\n                    <button ion-button color="primary">Skip</button>\n\n                </ion-buttons>\n\n            </ion-toolbar>\n\n            <img [src]="slide.image" class="slide-image" />\n\n            <h2 class="slide-title" [innerHTML]="slide.title"></h2>\n\n            <p [innerHTML]="slide.description"></p>\n\n        </ion-slide>\n\n        \n\n        <ion-slide>\n\n            <ion-toolbar>\n\n            </ion-toolbar>\n\n            <img src="assets/img/ica-slidebox-img-4.png" class="slide-image" />\n\n            <h2 class="slide-title">Ready to Play?</h2>\n\n            <button ion-button large clear icon-end color="primary">\n\n                Continue\n\n                <ion-icon name="arrow-forward"></ion-icon>\n\n            </button>\n\n        </ion-slide>\n\n    </ion-slides>\n\n</ion-content>'/*ion-inline-end:"C:\Users\SLTru\Documents\the-marauder-s-map\src\pages\test\test.html"*/
         })
     ], TestPage);
     return TestPage;
