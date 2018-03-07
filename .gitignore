@@ -21,6 +21,7 @@ coverage/
 dist/
 node_modules/
 platforms/
+www/build/
 tmp/
 temp/
 $RECYCLE.BIN/
