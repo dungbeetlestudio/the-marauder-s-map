@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController, ModalController, PopoverController, NavParams, Modal } from 'ionic-angular';
+import { LoadingController, NavController, ViewController, NavParams } from 'ionic-angular';
+import * as $ from "jquery";
 
 declare const AMap
 
@@ -12,8 +13,7 @@ export class HomePage {
   map: any
 
   constructor(public navCtrl: NavController,
-    public popoverCtrl: PopoverController,
-    public modalCtrl: ModalController) {
+    public loadingCtrl: LoadingController) {
 
   }
 
@@ -21,5 +21,12 @@ export class HomePage {
     this.map = new AMap.Map('container', {
       resizeEnable: true
     })
+
+  }
+
+  next() {
+    $('.step-1').css('display', 'none')
+    $('.step-2').css('display', 'none')
+    $('.step-3').css('display', 'flex')
   }
 }
