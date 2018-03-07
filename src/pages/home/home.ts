@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoadingController, NavController, ViewController, NavParams } from 'ionic-angular';
+import { Events, LoadingController, NavController, ViewController, NavParams } from 'ionic-angular';
 import * as $ from "jquery";
 
 declare const AMap
@@ -12,21 +12,26 @@ declare const AMap
 export class HomePage {
   map: any
 
-  constructor(public navCtrl: NavController,
-    public loadingCtrl: LoadingController) {
-
+  constructor(public events: Events,
+    public navCtrl: NavController,
+    public loadingCtrl: LoadingController,
+  ) {
+    events.subscribe('appExit', () => {
+      $('.step-1').css('display', 'none')
+      $('.step-2').css('display', 'none')
+      $('.step-3').css('display', 'none')
+      $('.step-exit').css('display', 'flex')
+    });
   }
 
   ionViewDidLoad() {
     this.map = new AMap.Map('container', {
       resizeEnable: true
     })
-
   }
 
   next() {
     $('.step-1').css('display', 'none')
-    $('.step-2').css('display', 'none')
-    $('.step-3').css('display', 'flex')
+    $('.step-2').css('display', 'flex')
   }
 }

@@ -20,8 +20,7 @@ page-home {
             flex-direction: column;
             align-items: center;
             justify-content: center;
-           
-            
+                       
             .hint {
                 text-align: center;
             }
@@ -42,7 +41,6 @@ page-home {
                 box-shadow: 2px 2px black;
                 font-size: 10px;
                 color: black;
-                
             }
         }
 
@@ -74,11 +72,42 @@ page-home {
                     height: 27px;
                     text-align: center;
                 }
-            }
+                
+            } 
         }
 
         .step-exit {
             display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .hint {
+                margin-bottom:65px;
+            }
+
+            .yes {
+                border: solid black 2px;
+                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+                background: #9fb5f8;
+                width: 63px;
+                height: 27px;
+                box-shadow: 2px 2px black;
+                font-size: 10px;
+                color: black;
+            }
+
+            .no {
+                margin-left: 20px;
+                border: solid black 2px;
+                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+                background: #9fb5f8;
+                width: 63px;
+                height: 27px;
+                box-shadow: 2px 2px black;
+                font-size: 10px;
+                color: black;
+            }
         }
     }
 }
