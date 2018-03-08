@@ -26,13 +26,7 @@ export class HomePage {
       resizeEnable: true
     })
 
-    $('.step-1 .phone-numbers').keyup(() => {
-
-    })
-
-    $('.step-3 .code').keyup(() => {
-
-    })
+    $('.phone-numbers').focus()
   }
 
   next() {
@@ -41,14 +35,19 @@ export class HomePage {
 
     let i = 0
     let timer = setInterval(() => {
-      if (i++ < 3) {
+      if (i++ < 1) {
         $('.step-2 .progress').text(`${15 - i} seconds`)
-        console.log(i)
       }
       else {
         clearInterval(timer)
         $('.step-2').css('display', 'none')
         $('.step-3').css('display', 'flex')
+
+        $('.step-3 .code')[0].onkeyup = () => { $('.step-3 .code')[1].focus() }
+        $('.step-3 .code')[1].onkeyup = () => { $('.step-3 .code')[2].focus() }
+        $('.step-3 .code')[2].onkeyup = () => { $('.step-3 .code')[3].focus() }
+        $('.step-3 .code')[3].onkeyup = () => { $('.sign-in').css('display', 'none') }
+        $('.step-3 .code')[0].focus()
       }
     }, 1000)
 
