@@ -88,11 +88,11 @@ export class HomePage {
       }, 1000)
     })
 
-    // if (true) {
-    //   $('.step-4').hide('fast', () => {
-    //     $('.step-4 .hint').value = 'signing'
-    //     clearInterval(timer)
-    //   })
-    // }
+    if (true) {
+      $('.step-4').hide('fast', () => {
+        $('.step-4 .hint').value = 'signing'
+        clearInterval(timer)
+      })
+    }
   }
 }
