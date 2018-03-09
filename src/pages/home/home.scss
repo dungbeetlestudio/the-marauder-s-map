@@ -117,9 +117,29 @@ page-home {
                 height: 20px;
                 
                 .progress-value {
-                    background: #9fb5f8;
-                    width: 0px;
-                    height: 16px;
+                    background:linear-gradient(120deg,
+                     white 0rem,
+                     white 1.0rem,
+                     #9fb5f8 1.0rem,
+                     #9fb5f8 2.0rem,
+                     white 2.0rem, 
+                     white 3.0rem,
+                     #9fb5f8 3.0rem,
+                     #9fb5f8 4.0rem,
+                     white 4.0rem, 
+                     white 5.0rem,
+                     #9fb5f8 5.0rem,
+                     #9fb5f8 6.0rem,
+                     white 6.0rem, 
+                     white 7.0rem,
+                     #9fb5f8 7.0rem,
+                     #9fb5f8 8.0rem,
+                     white 8.0rem, 
+                     white 9.0rem,
+                     #9fb5f8 9.0rem,
+                     #9fb5f8 10.0rem);
+                    width: 100px;
+                    height: 16px;   
                 }
             }
         }

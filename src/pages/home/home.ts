@@ -66,7 +66,7 @@ export class HomePage {
 
     let i = 0
     let timer = setInterval(() => {
-      if (i++ < 15) {
+      if (i++ < 0) {
         $('.progress-value').css('width', i * (100 / 15))
       }
       else {
@@ -78,21 +78,12 @@ export class HomePage {
   }
 
   signIn() {
-    let timer
     $('.step-4').show('fast', () => {
-      timer = setInterval(() => {
-        if ($('.step-4 .hint')[0].innerHTML.length > 10)
-          $('.step-4 .hint')[0].innerHTML = 'signing'
-        else
-          $('.step-4 .hint')[0].innerHTML += '.'
-      }, 1000)
+
     })
 
-    if (true) {
-      $('.step-4').hide('fast', () => {
-        $('.step-4 .hint').value = 'signing'
-        clearInterval(timer)
-      })
-    }
+    // $('.step-4').hide('fast', () => {
+
+    // })
   }
 }
