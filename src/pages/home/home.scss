@@ -61,8 +61,18 @@ page-home {
                 text-align: center;
             }
 
-            .progress{
+            .progress {
                 margin-top:20px;
+                border: solid black 2px;
+                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+                width: 104px;
+                height: 20px;
+                
+                .progress-value {
+                    background: #9fb5f8;
+                    width: 0px;
+                    height: 16px;
+                }
             }
         }
 
@@ -97,6 +107,20 @@ page-home {
             
             .hint {
                 text-align: center;
+            }
+
+            .progress {
+                margin-top:20px;
+                border: solid black 2px;
+                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+                width: 104px;
+                height: 20px;
+                
+                .progress-value {
+                    background: #9fb5f8;
+                    width: 0px;
+                    height: 16px;
+                }
             }
         }
     }
