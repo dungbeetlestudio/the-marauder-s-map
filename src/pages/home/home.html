@@ -7,14 +7,17 @@
 </ion-header>
 
 <ion-content padding>
+  <!-- this is map -->
   <div id="container"></div>
   <div id="tip"></div>
+
+  <!-- user sign in -->
   <div class="sign-in">
     <div class="step-1">
       <div class="hint">Please input your phone numbers!</div>
-      <div>
-        <input class="phone-numbers" maxlength="11" type="number"/>
-        <button class="next" (click)="next()">Next</button>
+      <div class="phone-group">
+        <input class="phone-numbers" maxlength="11" type="number" />
+        <button class="next">Next</button>
       </div>
     </div>
     <div class="step-2">
@@ -24,18 +27,14 @@
     <div class="step-3">
       <div class="hint">Please input verification code that you received!</div>
       <div class="code-group">
-        <input class="code" maxlength="1" type="number"/>
-        <input class="code" maxlength="1" type="number"/>
-        <input class="code" maxlength="1" type="number"/>
-        <input class="code" maxlength="1" type="number"/>
+        <input class="code" maxlength="1" type="number" />
+        <input class="code" maxlength="1" type="number" />
+        <input class="code" maxlength="1" type="number" />
+        <input class="code" maxlength="1" type="number" />
       </div>
     </div>
-    <div class="step-exit">
-      <div class="hint">Do you exit the app?</div>
-      <div>
-        <button class="yes">Yes</button>
-        <button class="no">No</button>
-      </div>
+    <div class="step-4">
+      <div class="hint">signing</div>
     </div>
   </div>
 </ion-content>

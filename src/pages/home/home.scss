@@ -27,19 +27,27 @@ page-home {
                 margin-bottom: 20px;
             }
 
-            .phone-numbers {
-                border: solid black 2px;
-                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
-            }
+            .phone-group {
+                display: flex;
 
-            .next {
-                border: solid black 2px;
-                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
-                background: #9fb5f8;
-                width: 63px;
-                height: 27px;
-                box-shadow: 2px 2px black;
-                color: black;
+                .phone-numbers {
+                    border: solid black 2px;
+                    border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+                    text-align: center;
+                    width: 120px;
+                    height: 27px;
+                }
+
+                .next {
+                    margin-left: 10px;
+                    border: solid black 2px;
+                    border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
+                    background: #9fb5f8;
+                    width: 63px;
+                    height: 25px;
+                    box-shadow: 2px 2px black;
+                    color: black;
+                }
             }
         }
 
@@ -75,46 +83,20 @@ page-home {
                     border: solid black 2px;
                     border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;                
                     width: 25px;
-                    height: 27px;
+                    height: 25px;
                     text-align: center;
                 }
             } 
         }
 
-        .step-exit {
+        .step-4 {
             display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-
-            z-index: auto;
+            
             .hint {
                 text-align: center;
-            }
-
-            .yes {
-                margin-top: 20px;
-                border: solid black 2px;
-                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
-                background: #9fb5f8;
-                width: 63px;
-                height: 27px;
-                box-shadow: 2px 2px black;
-                font-size: 10px;
-                color: black;
-            }
-
-            .no {
-                margin-top:20px;
-                margin-left: 20px;
-                border: solid black 2px;
-                border-radius: 10px 2.5px 10px 2.5px / 2.5px 10px 2.5px 10px;
-                background: #9fb5f8;
-                width: 63px;
-                height: 27px;
-                box-shadow: 2px 2px black;
-                font-size: 10px;
-                color: black;
             }
         }
     }
