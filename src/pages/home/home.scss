@@ -116,7 +116,7 @@ page-home {
                 width: 104px;
                 height: 20px;
                 
-                .progress-value {
+                .progress-value1 {
                     background:linear-gradient(120deg,
                      white 0rem,
                      white 1.0rem,
@@ -139,7 +139,33 @@ page-home {
                      #9fb5f8 9.0rem,
                      #9fb5f8 10.0rem);
                     width: 100px;
-                    height: 16px;   
+                    height: 16px;
+                }
+
+                .progress-value2 {
+                    background:linear-gradient(120deg,
+                     #9fb5f8 0rem,
+                     #9fb5f8 1.0rem,
+                     white 1.0rem,
+                     white 2.0rem,
+                     #9fb5f8 2.0rem, 
+                     #9fb5f8 3.0rem,
+                     white 3.0rem,
+                     white 4.0rem,
+                     #9fb5f8 4.0rem, 
+                     #9fb5f8 5.0rem,
+                     white 5.0rem,
+                     white 6.0rem,
+                     #9fb5f8 6.0rem, 
+                     #9fb5f8 7.0rem,
+                     white 7.0rem,
+                     white 8.0rem,
+                     #9fb5f8 8.0rem, 
+                     #9fb5f8 9.0rem,
+                     white 9.0rem,
+                     white 10.0rem);
+                    width: 100px;
+                    height: 16px;
                 }
             }
         }

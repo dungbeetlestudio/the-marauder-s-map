@@ -11,6 +11,7 @@ declare const AMap
 
 export class HomePage {
   map: any
+  timer: any
 
   constructor(public events: Events,
     public navCtrl: NavController,
@@ -65,12 +66,12 @@ export class HomePage {
     $('.step-2').css('display', 'flex')
 
     let i = 0
-    let timer = setInterval(() => {
+    this.timer = setInterval(() => {
       if (i++ < 0) {
         $('.progress-value').css('width', i * (100 / 15))
       }
       else {
-        clearInterval(timer)
+        clearInterval(this.timer)
         $('.step-2').css('display', 'none')
         $('.step-3').css('display', 'flex')
       }
@@ -78,12 +79,19 @@ export class HomePage {
   }
 
   signIn() {
-    $('.step-4').show('fast', () => {
+    $('.step-4').css('display', 'flex')
 
-    })
+    let i = 2
+    this.timer = setInterval(() => {
+      $('#step-4-progress-value').attr('class', `progress-value${i % 2 + 1}`)
+      i++
+    }, 500)
 
-    // $('.step-4').hide('fast', () => {
 
-    // })
+    setTimeout(() => {
+      clearInterval(this.timer)
+      $('.sign-in').css('display', 'none')
+      $('.step-4').css('display', 'none')
+    }, 3000)
   }
 }
