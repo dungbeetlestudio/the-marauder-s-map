@@ -87,7 +87,6 @@ export class HomePage {
       i++
     }, 500)
 
-
     setTimeout(() => {
       clearInterval(this.timer)
       $('.sign-in').css('display', 'none')

@@ -1,6 +1,22 @@
 page-home {
     font-family: cursive;
 
+    .header {
+
+    }
+
+    .search {
+        border: solid black 2px;
+        border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
+        top:2%;
+        left:5%;
+        width:90%;
+        height: 5%;
+        z-index: 9999;
+        position: absolute;
+    }
+
+
     .sign-in {
         border: solid black 2px;
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
@@ -170,4 +186,8 @@ page-home {
             }
         }
     }
+
+
+
 }
+
