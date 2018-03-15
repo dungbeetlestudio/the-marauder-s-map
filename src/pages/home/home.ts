@@ -22,10 +22,6 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    this.map = new AMap.Map('container', {
-      resizeEnable: true
-    })
-
     //按钮事件
     $('.step-1 .next')[0].onclick = this.next
 
@@ -59,6 +55,10 @@ export class HomePage {
       else
         $('.step-3 .code')[2].focus()
     }
+
+    this.map = new AMap.Map('container', {
+      resizeEnable: true
+    })
   }
 
   next() {
@@ -91,6 +91,7 @@ export class HomePage {
       clearInterval(this.timer)
       $('.sign-in').css('display', 'none')
       $('.step-4').css('display', 'none')
+      $('.search').css('display', 'flex')
     }, 3000)
   }
 }
