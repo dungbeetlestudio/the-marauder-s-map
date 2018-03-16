@@ -67,7 +67,7 @@ export class HomePage {
 
     let i = 0
     this.timer = setInterval(() => {
-      if (i++ < 0) {
+      if (i++ < 15) {
         $('.progress-value').css('width', i * (100 / 15))
       }
       else {
