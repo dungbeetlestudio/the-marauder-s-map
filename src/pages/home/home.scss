@@ -37,11 +37,31 @@ page-home {
     }
 
     .result {
-        display: flex;
-        flex-direction: column;
+        margin-top:1px;
         border: solid black 2px;
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
         background: rgba(255, 255, 255, 1);
+        padding-bottom: 2px;
+
+         .sliding {
+            background: transparent;
+            margin-top: 1px;
+
+            .item {
+                border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
+                border-bottom:  solid black 2px;
+            }
+
+            button {
+                border: solid black 2px;
+                border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;   
+            }
+         }
+    }
+
+    .action {
+        border: solid black 2px;
+
     }
 
     .sign-in {
@@ -53,7 +73,7 @@ page-home {
         right:15px;
         height: 50%;
         position: absolute;
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
 

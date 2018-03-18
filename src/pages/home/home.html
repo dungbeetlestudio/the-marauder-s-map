@@ -1,21 +1,66 @@
 <ion-content padding>
   <div class="search">
-    <img class="icon" src="assets/imgs/search.png" width="14px" height="14px" />
-    <input class="value" type="search" />
-    <img class="clear" src="assets/imgs/delete.png" width="14px" height="14px" />
-  </div>
-  <div class="result">
-    <div></div>
-    <div></div>
+    <ion-icon name="search"></ion-icon>
+    <input class="value" type="search" value="To"/>
+    <ion-icon name="close"></ion-icon>
   </div>
 
+  <ion-list class="result">
+    <ion-item-sliding class="sliding">
+      <ion-item class="item">
+        <ion-avatar item-start>
+          <img src="assets/img/winston.jpg">
+        </ion-avatar>
+        <h2>Winston</h2>
+        <p>That's a big Twinkie.</p>
+        <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+      <ion-item-options class="options">
+        <button ion-button color="primary" icon-start>
+          <ion-icon name="locate"></ion-icon>
+          &nbsp;&nbsp;At&nbsp;&nbsp;
+        </button>
+        <button ion-button color="secondary" icon-start>
+          <ion-icon name="person"></ion-icon>
+          &nbsp;See&nbsp;
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <ion-item-sliding class="sliding">
+      <ion-item class="item">
+        <ion-avatar item-start>
+          <img src="assets/img/winston.jpg">
+        </ion-avatar>
+        <h2>Winston</h2>
+        <p>That's a big Twinkie.</p>
+        <ion-note item-end>3:43 pm</ion-note>
+      </ion-item>
+      <ion-item-options class="options">
+        <button ion-button color="primary" icon-start>
+          <ion-icon name="locate"></ion-icon>
+          &nbsp;&nbsp;At&nbsp;&nbsp;
+        </button>
+        <button ion-button color="secondary" icon-start>
+          <ion-icon name="person"></ion-icon>
+          &nbsp;See&nbsp;
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
   <ion-fab center bottom>
-    <button ion-fab mini></button>
+    <button ion-fab mini class="action" color="primary">
+      <ion-icon name="code"></ion-icon>
+    </button>
     <ion-fab-list side="left">
-      <button ion-fab mini></button>
+      <button ion-fab mini class="action" color="secondary">
+        <ion-icon name="locate"></ion-icon>
+      </button>
     </ion-fab-list>
     <ion-fab-list side="right">
-      <button ion-fab mini></button>
+      <button ion-fab mini class="action" color="secondary">
+        <ion-icon name="send"></ion-icon>
+      </button>
     </ion-fab-list>
   </ion-fab>
 
