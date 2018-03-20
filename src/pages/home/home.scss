@@ -5,6 +5,7 @@ page-home {
     font-family: cursive;
 
     #container {
+        position: absolute;
         z-index: -1;
     }
 
@@ -42,6 +43,8 @@ page-home {
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
         background: rgba(255, 255, 255, 1);
         padding-bottom: 2px;
+        
+        display: none;
 
          .sliding {
             background: transparent;
@@ -50,6 +53,7 @@ page-home {
             .item {
                 border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
                 border-bottom:  solid black 2px;
+                background: #eeeeee;
             }
 
             button {
@@ -59,9 +63,26 @@ page-home {
          }
     }
 
-    .action {
-        border: solid black 2px;
+    .actions {
+        .action {
+            border: solid black 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 
+    .info {
+        border: solid black 2px;
+        border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
+        background: rgba(255, 255, 255, 0.75);
+        top:8%;
+        left: 15px;
+        right:15px;
+        height: 90%;
+        display: none;
+        position: absolute;
+        z-index: 999;
     }
 
     .sign-in {

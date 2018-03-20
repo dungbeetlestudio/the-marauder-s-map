@@ -1,10 +1,15 @@
 <ion-content padding>
+  <!-- this is map -->
+  <div id="container"></div>
+
+  <!-- serach user -->
   <div class="search">
     <ion-icon name="search"></ion-icon>
-    <input class="value" type="search" value="To"/>
+    <input class="value" type="search" value="To" />
     <ion-icon name="close"></ion-icon>
   </div>
 
+  <!-- result for serach user -->
   <ion-list class="result">
     <ion-item-sliding class="sliding">
       <ion-item class="item">
@@ -48,21 +53,31 @@
     </ion-item-sliding>
   </ion-list>
 
-  <ion-fab center bottom>
-    <button ion-fab mini class="action" color="primary">
-      <ion-icon name="code"></ion-icon>
-    </button>
-    <ion-fab-list side="left">
-      <button ion-fab mini class="action" color="secondary">
-        <ion-icon name="locate"></ion-icon>
+  <!-- actions -->
+  <div>
+    <ion-fab center bottom>
+      <button ion-fab mini class="action" color="primary">
+        <ion-icon name="code"></ion-icon>
       </button>
-    </ion-fab-list>
-    <ion-fab-list side="right">
-      <button ion-fab mini class="action" color="secondary">
-        <ion-icon name="send"></ion-icon>
-      </button>
-    </ion-fab-list>
-  </ion-fab>
+      <ion-fab-list side="left">
+        <button ion-fab mini class="action" color="secondary">
+          <ion-icon name="locate"></ion-icon>
+        </button>
+      </ion-fab-list>
+      <ion-fab-list side="right">
+        <button ion-fab mini class="action" color="secondary">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
+
+  <!-- user info -->
+  <div class="info">
+    <ion-icon name="close"></ion-icon>
+  </div>
+
+  <!-- user relations -->
 
   <!-- user sign in -->
   <div class="sign-in">
@@ -95,7 +110,4 @@
       </div>
     </div>
   </div>
-
-  <!-- this is map -->
-  <div id="container"></div>
 </ion-content>

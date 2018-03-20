@@ -58,7 +58,7 @@ export class HomePage {
 
     this.map = new AMap.Map('container', {
       resizeEnable: true
-    })
+    })   
   }
 
   next() {
