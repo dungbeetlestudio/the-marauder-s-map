@@ -1,11 +1,8 @@
 
 page-home {
-    $fab-list-button-background-color:black;
-
     font-family: cursive;
 
     #container {
-        position: absolute;
         z-index: -1;
     }
 
@@ -80,9 +77,33 @@ page-home {
         left: 15px;
         right:15px;
         height: 90%;
-        display: none;
+        display: flex;
+        flex-direction: column;
         position: absolute;
         z-index: 999;
+
+        .close {
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                background: transparent;
+           
+                img {
+                    width:30px;
+                    height:30px;
+                    pointer-events: none;
+                }
+            }
+
+            button:hover {
+                img {
+                    width:40px;
+                    height:40px;
+                    pointer-events: none;
+                }
+            }
+        }
     }
 
     .sign-in {

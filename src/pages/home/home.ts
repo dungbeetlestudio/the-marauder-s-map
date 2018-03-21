@@ -56,9 +56,9 @@ export class HomePage {
         $('.step-3 .code')[2].focus()
     }
 
-    this.map = new AMap.Map('container', {
-      resizeEnable: true
-    })   
+    // this.map = new AMap.Map('container', {
+    //   resizeEnable: true
+    // })   
   }
 
   next() {
