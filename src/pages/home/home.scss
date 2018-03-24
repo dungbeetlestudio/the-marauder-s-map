@@ -73,10 +73,10 @@ page-home {
         border: solid black 2px;
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
         background: rgba(255, 255, 255, 0.75);
-        top:8%;
+        top: 45px;
         left: 15px;
         right:15px;
-        height: 90%;
+        bottom: 10px;
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -87,6 +87,7 @@ page-home {
             justify-content: flex-end;
 
             button {
+                margin-right: -5px;
                 background: transparent;
            
                 img {
@@ -95,13 +96,42 @@ page-home {
                     pointer-events: none;
                 }
             }
+        }
 
-            button:hover {
-                img {
-                    width:40px;
-                    height:40px;
-                    pointer-events: none;
-                }
+        .head-portrait {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            
+            img {
+                width: 120px;
+                height: 120px;
+                border: solid black 2px;
+                border-radius: 50%;
+            }
+        }
+
+        hr {
+            background: black;
+            height: 2px;
+            width: 100%; 
+            border-top-left-radius: 70%;
+            border-bottom-right-radius: 70%;   
+        }
+
+
+        .said {
+            margin-left: 20px;
+            margin-right: 20px;
+            
+            .content {
+                margin-top: 20px;
+            }
+
+            .time {
+                margin-top: 10px;
+                text-align: end;
+                color: #2b78e4;
             }
         }
     }
