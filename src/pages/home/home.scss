@@ -34,50 +34,55 @@ page-home {
         }
     }
 
-    .result {
-        margin-top:1px;
+    .resultScroll {
+        margin-top: 2px;
         border: solid black 2px;
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
-        background: rgba(255, 255, 255, 1);
-        padding-bottom: 2px;
-        
+        height: 50%;
+        background: white;
         display: none;
+        
+        .result {
+            margin-top: -18px;
+            margin-bottom: 0px;
+            margin-left: -18px;
+            margin-right: -18px;
+            background: white;
 
-         .sliding {
-            background: transparent;
-            margin-top: 1px;
+            .sliding {
+                margin-top: 2px;
 
-            .item {
-                border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
-                border-bottom:  solid black 2px;
-                background: #eeeeee;
+                .item {
+                    border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
+                    border-bottom:  solid black 2px;
+                }
+
+                button {
+                    border: solid black 2px;
+                    border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;   
+                }
             }
-
-            button {
-                border: solid black 2px;
-                border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;   
-            }
-         }
-    }
-
-    .actions {
-        .action {
-            border: solid black 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
     }
+
+
+    .actions {
+        border: solid black 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
 
     .info {
         border: solid black 2px;
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
         background: rgba(255, 255, 255, 0.75);
-        top: 8%;
+        top: 45px;
         left: 15px;
         right:15px;
-        height: 90%;
-        display: flex;
+        bottom: 10px;
+        display: none;
         flex-direction: column;
         position: absolute;
         z-index: 999;
@@ -85,10 +90,11 @@ page-home {
         .close {
             display: flex;
             justify-content: flex-end;
-
+            
             button {
+                margin-right: -5px;
                 background: transparent;
-           
+        
                 img {
                     width:30px;
                     height:30px;
@@ -96,6 +102,46 @@ page-home {
                 }
             }
         }
+
+        .infoScroll {
+            height: 100%;
+            margin-top: -33px;
+
+            .head-portrait {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                
+                img {
+                    width: 120px;
+                    height: 120px;
+                    border: solid black 2px;
+                    border-radius: 50%;
+                }
+            }
+    
+            hr {
+                background: black;
+                height: 2px;
+                width: 100%; 
+                border-top-left-radius: 70%;
+                border-bottom-right-radius: 70%;   
+            }
+    
+    
+            .said {
+                .content {
+                    margin-top: 20px;
+                }
+    
+                .time {
+                    margin-top: 10px;
+                    text-align: right;
+                    color: #2b78e4;
+                }
+            }
+        }
+
     }
 
     .sign-in {

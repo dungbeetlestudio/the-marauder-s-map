@@ -10,62 +10,66 @@
   </div>
 
   <!-- result for serach user -->
-  <ion-list class="result">
-    <ion-item-sliding class="sliding">
-      <ion-item class="item">
-        <ion-avatar item-start>
-          <img src="assets/img/winston.jpg">
-        </ion-avatar>
-        <h2>Winston</h2>
-        <p>That's a big Twinkie.</p>
-        <ion-note item-end>3:43 pm</ion-note>
-      </ion-item>
-      <ion-item-options class="options">
-        <button ion-button color="primary" icon-start>
-          <ion-icon name="locate"></ion-icon>
-          &nbsp;&nbsp;At&nbsp;&nbsp;
-        </button>
-        <button ion-button color="secondary" icon-start>
-          <ion-icon name="person"></ion-icon>
-          &nbsp;See&nbsp;
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding class="sliding">
-      <ion-item class="item">
-        <ion-avatar item-start>
-          <img src="assets/img/winston.jpg">
-        </ion-avatar>
-        <h2>Winston</h2>
-        <p>That's a big Twinkie.</p>
-        <ion-note item-end>3:43 pm</ion-note>
-      </ion-item>
-      <ion-item-options class="options">
-        <button ion-button color="primary" icon-start>
-          <ion-icon name="locate"></ion-icon>
-          &nbsp;&nbsp;At&nbsp;&nbsp;
-        </button>
-        <button ion-button color="secondary" icon-start>
-          <ion-icon name="person"></ion-icon>
-          &nbsp;See&nbsp;
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+  <ion-scroll scrollY="true" class="resultScroll">
+    <ion-list class="result">
+
+      <ion-item-sliding class="sliding">
+        <ion-item class="item">
+          <ion-avatar item-start>
+            <img src="assets/img/winston.jpg">
+          </ion-avatar>
+          <h2>Winston</h2>
+          <p>That's a big Twinkie.</p>
+          <ion-note item-end>3:43 pm</ion-note>
+        </ion-item>
+        <ion-item-options class="options">
+          <button ion-button color="primary" icon-start>
+            <ion-icon name="locate"></ion-icon>
+            &nbsp;&nbsp;At&nbsp;&nbsp;
+          </button>
+          <button ion-button color="secondary" icon-start>
+            <ion-icon name="person"></ion-icon>
+            &nbsp;See&nbsp;
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding class="sliding">
+        <ion-item class="item">
+          <ion-avatar item-start>
+            <img src="assets/img/winston.jpg">
+          </ion-avatar>
+          <h2>Winston</h2>
+          <p>That's a big Twinkie.</p>
+          <ion-note item-end>3:43 pm</ion-note>
+        </ion-item>
+        <ion-item-options class="options">
+          <button ion-button color="primary" icon-start>
+            <ion-icon name="locate"></ion-icon>
+            &nbsp;&nbsp;At&nbsp;&nbsp;
+          </button>
+          <button ion-button color="secondary" icon-start>
+            <ion-icon name="person"></ion-icon>
+            &nbsp;See&nbsp;
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-scroll>
 
   <!-- actions -->
   <div>
     <ion-fab center bottom>
-      <button ion-fab mini class="action" color="primary">
+      <button ion-fab mini class="actions" color="primary">
         <ion-icon name="code"></ion-icon>
       </button>
       <ion-fab-list side="left">
-        <button ion-fab mini class="action" color="secondary">
+        <button ion-fab mini class="actions" color="secondary">
           <ion-icon name="locate"></ion-icon>
         </button>
       </ion-fab-list>
       <ion-fab-list side="right">
-        <button ion-fab mini class="action" color="secondary">
+        <button ion-fab mini class="actions" color="secondary">
           <ion-icon name="send"></ion-icon>
         </button>
       </ion-fab-list>
@@ -73,15 +77,39 @@
   </div>
 
   <!-- user info -->
-  <!-- <div class="info">
+
+  <div class="info">
     <div class="close">
       <button>
         <img src="assets/imgs/delete.png" />
       </button>
     </div>
-    <div>xxx</div>
-  </div> -->
 
+    <ion-scroll scrollY="true" class="infoScroll">
+      <ion-list>
+        <div class="head-portrait">
+          <img src="assets/img/avatar-finn.png" />
+          <h1>tod</h1>
+        </div>
+
+        <div class="said">
+          <div class="content">work hard.</div>
+          <div class="time">before 8 hours</div>
+          <hr />
+
+          <div class="content">Finnally I become the richest! now I have buy an island as my new home in the Pacific. I feel powerful. all things
+            of the world will be mine!</div>
+          <div class="time">before 1 day</div>
+          <hr />
+
+          <div class="content">！@##￥%！@##@！￥*!@##$
+            <br>!@$!@#</div>
+          <div class="time">before 2 days</div>
+          <hr />
+        </div>
+      </ion-list>
+    </ion-scroll>
+  </div>
   <!-- user relations -->
 
   <!-- user sign in -->
