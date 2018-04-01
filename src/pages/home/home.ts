@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Events, NavController } from 'ionic-angular';
 import * as $ from "jquery";
+import { Geolocation } from '@ionic-native/geolocation';
 
 declare const AMap
 
@@ -10,21 +11,27 @@ declare const AMap
 })
 
 export class HomePage {
-  map: any
   timer: any
+  locator: any
+  coords: any
+  map: any
 
   constructor(public events: Events,
     public navCtrl: NavController,
+    public geolocation: Geolocation
+
   ) {
     events.subscribe('appExit', () => {
       $('.step-exit').css('display', 'flex')
     })
+
+    let watch = this.geolocation.watchPosition()
+    this.locator = watch.subscribe(this.locate)
   }
 
   ionViewDidLoad() {
     //按钮事件
     $('.step-1 .next')[0].onclick = this.next
-
     $('.step-3 .code')[0].onfocus = () => $('.step-3 .code')[0].value = ''
     $('.step-3 .code')[1].onfocus = () => $('.step-3 .code')[1].value = ''
     $('.step-3 .code')[2].onfocus = () => $('.step-3 .code')[2].value = ''
@@ -56,9 +63,15 @@ export class HomePage {
         $('.step-3 .code')[2].focus()
     }
 
+    $('.atToSelf')[0].onclick = this.atToSelf
+
     this.map = new AMap.Map('container', {
+      viewMode: '3D',
+      pitch: 45,
+      zoom: 23,
+      expandZoomRange: true,
       resizeEnable: true
-    })   
+    })
   }
 
   next() {
@@ -93,5 +106,28 @@ export class HomePage {
       $('.step-4').css('display', 'none')
       $('.search').css('display', 'flex')
     }, 3000)
+  }
+
+  locate(data) {
+    // data can be a set of coordinates, or an error (if an error occurred).
+    var str = ['定位成功'];
+
+    str.push('经度：' + data.coords.longitude);
+    str.push('纬度：' + data.coords.latitude);
+
+    document.getElementById('tip').innerHTML = str.join('<br>')
+
+    this.coords = data.coords
+    console.log(`[${this.coords.longitude},${this.coords.latitude}]`)
+  }
+
+  atToSelf() {
+    try {
+      this.map.setZoomAndCenter(14, [this.coords.longitude, this.coords.latitude])
+    }
+    catch (e) {
+      console.log(this.map)
+      console.log(e)
+    }
   }
 }

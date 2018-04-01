@@ -53,54 +53,6 @@ page-home {
         }
     }
 
-    .people2 {
-        position:absolute;
-        top:400px;
-        left:150px;
-
-        .say {
-            margin-left: 50px;
-            height:25px; 
-            border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
-            border:2px solid black; 
-            position:relative; 
-            background-color:#FFF;
-
-            em {
-                display:block;
-                border-width:10px; 
-                position:absolute;
-                bottom:-20px;   
-                left:50px;
-                border-style:solid dashed dashed;
-                border-color:black transparent transparent;
-                font-size:0; 
-                line-height:0;
-            }
-
-            span {
-                display:block; 
-                border-width:10px; 
-                position:absolute; 
-                bottom:-18px; 
-                left:50px;
-                border-style:solid dashed dashed; 
-                border-color:#FFF transparent transparent;
-                font-size:0; 
-                line-height:0;
-            }
-        }
-
-        .head-portrait {
-            margin-top: 8px;
-            margin-left: 88px;
-            border: solid black 2px;
-            border-radius: 50%;
-            width:50px;
-            height:50px;
-        }
-    }
-
     .search {
         border: solid black 2px;
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
@@ -135,7 +87,7 @@ page-home {
         border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
         height: 150px;
         background: white;
-        display: flex;
+        display: none;
         
         .result {
             margin-top: -18px;
@@ -159,7 +111,6 @@ page-home {
             }
         }
     }
-
 
     .actions {
         border: solid black 2px;
@@ -248,7 +199,7 @@ page-home {
         right:15px;
         height: 50%;
         position: absolute;
-        display: none;
+        display: none; 
         align-items: center;
         justify-content: center;
 
