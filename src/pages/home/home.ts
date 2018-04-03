@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { Events, NavController } from 'ionic-angular';
-import * as $ from "jquery";
 import { Geolocation } from '@ionic-native/geolocation';
 
+import * as coordTransform from 'coordtransform'
+import * as $ from 'jquery'
+
 declare const AMap
+
 
 @Component({
   selector: 'page-home',
@@ -26,12 +29,12 @@ export class HomePage {
     })
 
     let watch = this.geolocation.watchPosition()
-    this.locator = watch.subscribe(this.locate)
+    this.locator = watch.subscribe((data) => { this.locate(data) })
   }
 
   ionViewDidLoad() {
     //button events
-    $('.step-1 .next')[0].onclick = this.next
+    $('.step-1 .next')[0].onclick = () => { this.next }
     $('.step-3 .code')[0].onfocus = () => $('.step-3 .code')[0].value = ''
     $('.step-3 .code')[1].onfocus = () => $('.step-3 .code')[1].value = ''
     $('.step-3 .code')[2].onfocus = () => $('.step-3 .code')[2].value = ''
@@ -63,7 +66,7 @@ export class HomePage {
         $('.step-3 .code')[2].focus()
     }
 
-    $('.atToSelf')[0].onclick = this.atToSelf
+    $('.atToSelf')[0].onclick = () => { this.atToSelf() } // object
 
     this.map = new AMap.Map('container', {
       viewMode: '3D',
@@ -116,18 +119,12 @@ export class HomePage {
     str.push('latitude:' + data.coords.latitude);
 
     document.getElementById('tip').innerHTML = str.join('<br>')
-
     this.coords = data.coords
-    console.log(`[${this.coords.longitude},${this.coords.latitude}]`)
   }
 
   atToSelf() {
-    try {
-      this.map.setZoomAndCenter(14, [this.coords.longitude, this.coords.latitude])
-    }
-    catch (e) {
-      console.log(this.map)
-      console.log(e)
-    }
+      var wgs84togcj02 = coordTransform.wgs84togcj02(this.coords.longitude, this.coords.latitude);
+      console.log(wgs84togcj02)
+      this.map.setZoomAndCenter(19, wgs84togcj02)
   }
 }
