@@ -30,7 +30,7 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    //按钮事件
+    //button events
     $('.step-1 .next')[0].onclick = this.next
     $('.step-3 .code')[0].onfocus = () => $('.step-3 .code')[0].value = ''
     $('.step-3 .code')[1].onfocus = () => $('.step-3 .code')[1].value = ''
@@ -110,10 +110,10 @@ export class HomePage {
 
   locate(data) {
     // data can be a set of coordinates, or an error (if an error occurred).
-    var str = ['定位成功'];
+    var str = ['successed'];
 
-    str.push('经度：' + data.coords.longitude);
-    str.push('纬度：' + data.coords.latitude);
+    str.push('longitude:' + data.coords.longitude);
+    str.push('latitude:' + data.coords.latitude);
 
     document.getElementById('tip').innerHTML = str.join('<br>')
 
