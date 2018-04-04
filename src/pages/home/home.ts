@@ -29,12 +29,12 @@ export class HomePage {
     })
 
     let watch = this.geolocation.watchPosition()
-    this.locator = watch.subscribe((data) => { this.locate(data) })
+    this.locator = watch.subscribe(this.locate.bind(this))
   }
 
   ionViewDidLoad() {
     //button events
-    $('.step-1 .next')[0].onclick = () => { this.next }
+    $('.step-1 .next')[0].onclick = this.next.bind(this)
     $('.step-3 .code')[0].onfocus = () => $('.step-3 .code')[0].value = ''
     $('.step-3 .code')[1].onfocus = () => $('.step-3 .code')[1].value = ''
     $('.step-3 .code')[2].onfocus = () => $('.step-3 .code')[2].value = ''
@@ -66,7 +66,7 @@ export class HomePage {
         $('.step-3 .code')[2].focus()
     }
 
-    $('.atToSelf')[0].onclick = () => { this.atToSelf() } // object
+    $('.atToSelf')[0].onclick = this.atToSelf.bind(this) // object
 
     this.map = new AMap.Map('container', {
       viewMode: '3D',
@@ -123,8 +123,8 @@ export class HomePage {
   }
 
   atToSelf() {
-      var wgs84togcj02 = coordTransform.wgs84togcj02(this.coords.longitude, this.coords.latitude);
-      console.log(wgs84togcj02)
-      this.map.setZoomAndCenter(19, wgs84togcj02)
+    var wgs84togcj02 = coordTransform.wgs84togcj02(this.coords.longitude, this.coords.latitude);
+    console.log(wgs84togcj02)
+    this.map.setZoomAndCenter(19, wgs84togcj02)
   }
 }
