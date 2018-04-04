@@ -66,7 +66,7 @@ export class HomePage {
         $('.step-3 .code')[2].focus()
     }
 
-    $('.atToSelf')[0].onclick = this.atToSelf.bind(this) // object
+    $('.atSelf')[0].onclick = this.atSelf.bind(this) // object
 
     this.map = new AMap.Map('container', {
       viewMode: '3D',
@@ -122,7 +122,7 @@ export class HomePage {
     this.coords = data.coords
   }
 
-  atToSelf() {
+  atSelf() {
     var wgs84togcj02 = coordTransform.wgs84togcj02(this.coords.longitude, this.coords.latitude);
     console.log(wgs84togcj02)
     this.map.setZoomAndCenter(19, wgs84togcj02)
