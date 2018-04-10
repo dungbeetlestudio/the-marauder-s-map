@@ -3,7 +3,10 @@ import { Events, NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
 import * as coordTransform from 'coordtransform'
+//import * as http from 'request'
+import * as http from 'ajax'
 import * as $ from 'jquery'
+
 
 declare const AMap
 
@@ -111,7 +114,7 @@ export class HomePage {
     }, 3000)
   }
 
-  locate(data) {
+  async locate(data) {
     // data can be a set of coordinates, or an error (if an error occurred).
     var str = ['successed'];
 
@@ -120,6 +123,8 @@ export class HomePage {
 
     document.getElementById('tip').innerHTML = str.join('<br>')
     this.coords = data.coords
+    var rs = await http.get(`http://127.0.0.1/atSelf?_id=182123&value=222`)
+    console.log(rs.body)
   }
 
   atSelf() {
