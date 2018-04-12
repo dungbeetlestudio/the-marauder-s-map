@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { Events, NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 
-import * as coordTransform from 'coordtransform'
-//import * as http from 'request'
+import * as ctf from 'coordtransform'
+import * as qs from 'querystring'
 import * as http from 'ajax'
 import * as $ from 'jquery'
 
-
 declare const AMap
-
 
 @Component({
   selector: 'page-home',
@@ -21,6 +19,7 @@ export class HomePage {
   locator: any
   coords: any
   map: any
+  marker: any
 
   constructor(public events: Events,
     public navCtrl: NavController,
@@ -72,12 +71,26 @@ export class HomePage {
     $('.atSelf')[0].onclick = this.atSelf.bind(this) // object
 
     this.map = new AMap.Map('container', {
-      viewMode: '3D',
+      viewMode: '2D',
       pitch: 45,
       zoom: 23,
       expandZoomRange: true,
-      resizeEnable: true
+      resizeEnable: true,
+      center: [112.90793486290448, 28.203039376444476]
     })
+
+    this.marker = new AMap.Marker({
+      position: [112.90793486290448, 28.203039376444476],
+      content: `<div class="people">
+        <div class="say">
+          <em></em><span></span>
+          <div class="says">That's&nbsp;a&nbsp;big&nbsp;Twinkie.</div>
+        </div>
+        <img class="head-portrait" src="assets/img/winston.jpg" />
+      </div>`,
+      map: this.map
+    })
+
   }
 
   next() {
@@ -123,13 +136,18 @@ export class HomePage {
 
     document.getElementById('tip').innerHTML = str.join('<br>')
     this.coords = data.coords
-    var rs = await http.get(`http://127.0.0.1/atSelf?_id=182123&value=222`)
-    console.log(rs.body)
+
+    // var rs = await http.get(`http://127.0.0.1/self?_id=182123&value=222`)
+    // console.log(rs.body)
+
+    // rs = await http.get(`http://127.0.0.1/others?${qs.stringify({ _id: ['182131'] })}`)
+    // console.log(rs.body)
   }
 
   atSelf() {
-    var wgs84togcj02 = coordTransform.wgs84togcj02(this.coords.longitude, this.coords.latitude);
+    var wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
     console.log(wgs84togcj02)
-    this.map.setZoomAndCenter(19, wgs84togcj02)
+    this.map.setCenter(wgs84togcj02)
+    this.marker.setPosition(wgs84togcj02)
   }
 }

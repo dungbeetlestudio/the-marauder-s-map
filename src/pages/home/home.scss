@@ -8,22 +8,22 @@ page-home {
     }
 
     .people {
-        position:absolute;
-        top:300px;
         .say {
-            margin-left: 50px;
-            height:25px; 
-            border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
-            border:2px solid black; 
+            left: -5px;
+            bottom: 5px;
+            height: 25px;
+
             position:relative; 
+            border:2px solid black; 
+            border-radius: 50px 5px 100px 5px/5px 20px 5px 20px;
             background-color:#FFF;
 
             em {
+                left:20px;
                 display:block;
                 border-width:10px; 
                 position:absolute;
-                bottom:-20px;   
-                left:50px;
+                bottom:-20px;
                 border-style:solid dashed dashed;
                 border-color:black transparent transparent;
                 font-size:0; 
@@ -31,11 +31,11 @@ page-home {
             }
 
             span {
+                left:20px;
                 display:block; 
                 border-width:10px; 
                 position:absolute; 
                 bottom:-18px; 
-                left:50px;
                 border-style:solid dashed dashed; 
                 border-color:#FFF transparent transparent;
                 font-size:0; 
@@ -44,8 +44,6 @@ page-home {
         }
 
         .head-portrait {
-            margin-top: 8px;
-            margin-left: 88px;
             border: solid black 2px;
             border-radius: 50%;
             width:50px;
