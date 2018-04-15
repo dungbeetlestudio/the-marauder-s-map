@@ -97,14 +97,16 @@ export class HomePage {
       }
     }
 
-    try{
+    this.ionViewDidLoad2()
+  }
+
+  ionViewDidLoad2() {
     this.map = new AMap.Map('container', {
       zoom: 23,
       expandZoomRange: true,
       resizeEnable: true,
       center: [112.90793486290448, 28.203039376444476]
     })
-  }catch(e){console.log(e)}
 
     this.marker = new AMap.Marker({
       content: `<div class= "people">
@@ -116,7 +118,6 @@ export class HomePage {
           </div>`,
       map: this.map
     })
-
   }
 
   next() {
