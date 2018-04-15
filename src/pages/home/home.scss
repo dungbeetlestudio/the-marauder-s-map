@@ -7,6 +7,14 @@ page-home {
         z-index: -1;
     }
 
+    .amap-logo {
+        display: none!important;
+    }
+    
+    .amap-copyright {
+        display: none!important;
+    }  
+
     .people {
         .say {
             left: -5px;
@@ -58,7 +66,7 @@ page-home {
         height: 30px;
         margin-top: -15px;
 
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
 

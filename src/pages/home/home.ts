@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Events, NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Storage } from '@ionic/storage'
 
 import * as ctf from 'coordtransform'
 import * as qs from 'querystring'
@@ -17,14 +18,16 @@ declare const AMap
 export class HomePage {
   timer: any
   locator: any
-  coords: any
+  coords: any = { longitude: 0, latitude: 0 }
   map: any
   marker: any
+  phoneNumber: any
+  password: any
 
   constructor(public events: Events,
     public navCtrl: NavController,
-    public geolocation: Geolocation
-
+    public geolocation: Geolocation,
+    public storage: Storage
   ) {
     events.subscribe('appExit', () => {
       $('.step-exit').css('display', 'flex')
@@ -34,7 +37,7 @@ export class HomePage {
     this.locator = watch.subscribe(this.locate.bind(this))
   }
 
-  ionViewDidLoad() {
+  async ionViewDidLoad() {
     //button events
     $('.step-1 .next')[0].onclick = this.next.bind(this)
     $('.step-3 .code')[0].onfocus = () => $('.step-3 .code')[0].value = ''
@@ -69,6 +72,29 @@ export class HomePage {
     }
 
     $('.atSelf')[0].onclick = this.atSelf.bind(this) // object
+    //    $('.search .value')[0].focus()
+
+    let signIn = await this.storage.get('user')
+    console.log(signIn)
+
+    if (!signIn) {
+      console.log('上一次没有登陆')
+      this.displaySign()
+    }
+    else {
+      // let rs = await $.get(`http://127.0.0.1/prove?${qs.stringify({
+      //   account: this.phoneNumber,
+      //   password: this.password
+      // })}`)
+
+      if (true) {
+        console.log('登陆成功')
+        await this.storage.set('user', { phoneNumber: this.phoneNumber.value, password: this.password.value })
+        this.displayHome()
+      } else {
+        console.log('登陆失败')
+      }
+    }
 
     this.map = new AMap.Map('container', {
       viewMode: '2D',
@@ -80,17 +106,15 @@ export class HomePage {
     })
 
     this.marker = new AMap.Marker({
-      position: [112.90793486290448, 28.203039376444476],
-      content: `<div class="people">
-        <div class="say">
+      content: `<div class= "people">
+          <div class="say">
           <em></em><span></span>
-          <div class="says">That's&nbsp;a&nbsp;big&nbsp;Twinkie.</div>
-        </div>
-        <img class="head-portrait" src="assets/img/winston.jpg" />
-      </div>`,
+          <div class="says"> That's&nbsp;a&nbsp;big&nbsp;Twinkie.</div>
+          </div>
+          <img class= "head-portrait" src = "assets/img/winston.jpg" />
+          </div>`,
       map: this.map
     })
-
   }
 
   next() {
@@ -106,6 +130,7 @@ export class HomePage {
         clearInterval(this.timer)
         $('.step-2').css('display', 'none')
         $('.step-3').css('display', 'flex')
+        $('.step-3')[0].focus()
       }
     }, 1000)
   }
@@ -121,9 +146,7 @@ export class HomePage {
 
     setTimeout(() => {
       clearInterval(this.timer)
-      $('.sign-in').css('display', 'none')
-      $('.step-4').css('display', 'none')
-      $('.search').css('display', 'flex')
+      this.displayHome()
     }, 3000)
   }
 
@@ -147,7 +170,23 @@ export class HomePage {
   atSelf() {
     var wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
     console.log(wgs84togcj02)
+
     this.map.setCenter(wgs84togcj02)
     this.marker.setPosition(wgs84togcj02)
+  }
+
+  displaySign() {
+    $('.sign-in').css('display', 'flex')
+    $('.step-1').css('display', 'flex')
+    $('.search').css('display', 'none')
+    $('.actions').css('display', 'none')
+    $('.phone-numbers')[0].focus()
+  }
+
+  displayHome() {
+    $('.sign-in').css('display', 'none')
+    $('.step-4').css('display', 'none')
+    $('.search').css('display', 'flex')
+    $('.actions').css('display', 'flex')
   }
 }
