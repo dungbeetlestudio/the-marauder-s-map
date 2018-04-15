@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Events, NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Storage } from '@ionic/storage'
+import { Keyboard } from '@ionic-native/keyboard'
 
 import * as ctf from 'coordtransform'
 import * as qs from 'querystring'
@@ -27,7 +28,8 @@ export class HomePage {
   constructor(public events: Events,
     public navCtrl: NavController,
     public geolocation: Geolocation,
-    public storage: Storage
+    public storage: Storage,
+    public keyboard: Keyboard
   ) {
     events.subscribe('appExit', () => {
       $('.step-exit').css('display', 'flex')
@@ -72,7 +74,6 @@ export class HomePage {
     }
 
     $('.atSelf')[0].onclick = this.atSelf.bind(this) // object
-    //    $('.search .value')[0].focus()
 
     let signIn = await this.storage.get('user')
     console.log(signIn)
@@ -89,21 +90,21 @@ export class HomePage {
 
       if (true) {
         console.log('登陆成功')
-        await this.storage.set('user', { phoneNumber: this.phoneNumber.value, password: this.password.value })
-        this.displayHome()
+        await this.storage.set('user', { phoneNumber: this.phoneNumber, password: this.password })
+        //   this.displayHome()
       } else {
-        console.log('登陆失败')
+        // console.log('登陆失败')
       }
     }
 
+    try{
     this.map = new AMap.Map('container', {
-      viewMode: '2D',
-      pitch: 45,
       zoom: 23,
       expandZoomRange: true,
       resizeEnable: true,
       center: [112.90793486290448, 28.203039376444476]
     })
+  }catch(e){console.log(e)}
 
     this.marker = new AMap.Marker({
       content: `<div class= "people">
@@ -115,6 +116,7 @@ export class HomePage {
           </div>`,
       map: this.map
     })
+
   }
 
   next() {
@@ -130,7 +132,9 @@ export class HomePage {
         clearInterval(this.timer)
         $('.step-2').css('display', 'none')
         $('.step-3').css('display', 'flex')
-        $('.step-3')[0].focus()
+
+        this.keyboard.show()
+        $('.step-3 .code')[0].focus()
       }
     }, 1000)
   }
@@ -171,8 +175,8 @@ export class HomePage {
     var wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
     console.log(wgs84togcj02)
 
-    this.map.setCenter(wgs84togcj02)
-    this.marker.setPosition(wgs84togcj02)
+    //  this.map.setCenter(wgs84togcj02)
+    //  this.marker.setPosition(wgs84togcj02)
   }
 
   displaySign() {
@@ -180,6 +184,8 @@ export class HomePage {
     $('.step-1').css('display', 'flex')
     $('.search').css('display', 'none')
     $('.actions').css('display', 'none')
+
+    this.keyboard.show()
     $('.phone-numbers')[0].focus()
   }
 
