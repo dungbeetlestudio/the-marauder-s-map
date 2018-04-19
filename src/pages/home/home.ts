@@ -34,9 +34,6 @@ export class HomePage {
     events.subscribe('appExit', () => {
       $('.step-exit').css('display', 'flex')
     })
-
-    let watch = this.geolocation.watchPosition()
-    this.locator = watch.subscribe(this.locate.bind(this))
   }
 
   async ionViewDidLoad() {
@@ -73,27 +70,28 @@ export class HomePage {
         $('.step-3 .code')[2].focus()
     }
 
+
     $('.atSelf')[0].onclick = this.atSelf.bind(this) // object
 
     let signIn = await this.storage.get('user')
-    console.log(signIn)
 
     if (!signIn) {
       console.log('上一次没有登陆')
       this.displaySign()
     }
     else {
-      // let rs = await $.get(`http://127.0.0.1/prove?${qs.stringify({
-      //   account: this.phoneNumber,
-      //   password: this.password
-      // })}`)
+      this.phoneNumber = signIn.phoneNumber
+      this.password = signIn.password
+      let rs = await http.get(`http://sltruman.xicp.net:49549/prove?_id=${this.phoneNumber}&password=${this.password}`)
+      console.log(rs.body)
 
-      if (true) {
+      if (rs.body) {
         console.log('登陆成功')
-        await this.storage.set('user', { phoneNumber: this.phoneNumber, password: this.password })
-        //   this.displayHome()
+        this.displayHome()
       } else {
-        // console.log('登陆失败')
+        console.log('登陆失败')
+        await this.storage.remove('user')
+        this.displaySign()
       }
     }
 
@@ -120,14 +118,21 @@ export class HomePage {
     })
   }
 
-  next() {
+  async next() {
+    // let rs = await http.get(`http://sltruman.xicp.net:49549/verify?_id=${this.phoneNumber}`)
+    // if (!rs.body) {
+    //   alert(`请求验证码失败！`)
+    //   return
+    // }
+    this.phoneNumber = $('.phone-numbers')[0].value
+
     $('.step-1').css('display', 'none')
     $('.step-2').css('display', 'flex')
 
     let i = 0
     this.timer = setInterval(() => {
-      if (i++ < 15) {
-        $('.progress-value').css('width', i * (100 / 15))
+      if (i++ < 4) {
+        $('.progress-value').css('width', i * (100 / 4))
       }
       else {
         clearInterval(this.timer)
@@ -140,8 +145,27 @@ export class HomePage {
     }, 1000)
   }
 
-  signIn() {
+  async signIn() {
     $('.step-4').css('display', 'flex')
+
+    this.password = $('.step-3 .code')[0].value
+    this.password += $('.step-3 .code')[1].value
+    this.password += $('.step-3 .code')[2].value
+    this.password += $('.step-3 .code')[3].value
+
+    let rs = await http.get(`http://sltruman.xicp.net:49549/prove?_id=${this.phoneNumber}&password=${this.password}`)
+    console.log(rs.body)
+
+    if (rs.body) {
+      console.log('登陆成功')
+      await this.storage.set('user', { phoneNumber: this.phoneNumber, password: this.password })
+      this.displayHome()
+    } else {
+      console.log('登陆失败')
+      $('.step-4').css('display', 'none')
+      $('.step-3').css('display', 'flex')
+      return;
+    }
 
     let i = 2
     this.timer = setInterval(() => {
@@ -165,19 +189,19 @@ export class HomePage {
     document.getElementById('tip').innerHTML = str.join('<br>')
     this.coords = data.coords
 
-    // var rs = await http.get(`http://127.0.0.1/self?_id=182123&value=222`)
-    // console.log(rs.body)
+    var rs = await http.getXhr(`http://sltruman.xicp.net:49549/self?${qs.stringify({ longitude: this.coords.longitude, latitude: this.coords.latitude })}`)
+    console.log(rs.body)
 
-    // rs = await http.get(`http://127.0.0.1/others?${qs.stringify({ _id: ['182131'] })}`)
-    // console.log(rs.body)
+    rs = await http.getXhr(`http://sltruman.xicp.net:49549/others?${qs.stringify({ list: ["18620383941", "18121231"] })}`)
+    console.log(rs.body)
   }
 
   atSelf() {
     var wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
     console.log(wgs84togcj02)
 
-    //  this.map.setCenter(wgs84togcj02)
-    //  this.marker.setPosition(wgs84togcj02)
+    this.map.setCenter(wgs84togcj02)
+    this.marker.setPosition(wgs84togcj02)
   }
 
   displaySign() {
@@ -195,5 +219,8 @@ export class HomePage {
     $('.step-4').css('display', 'none')
     $('.search').css('display', 'flex')
     $('.actions').css('display', 'flex')
+
+    let watch = this.geolocation.watchPosition()
+    this.locator = watch.subscribe(this.locate.bind(this))
   }
 }
