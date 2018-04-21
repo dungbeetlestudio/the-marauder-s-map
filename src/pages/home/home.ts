@@ -26,6 +26,8 @@ export class HomePage {
   phoneNumber: any
   password: any
   phoneNumberList = []
+  displayNameList = {}
+  peoples = {}
 
   constructor(public events: Events,
     public navCtrl: NavController,
@@ -41,9 +43,14 @@ export class HomePage {
 
     this.contacts.find(['displayName', 'phoneNumbers', 'photos'], { hasPhoneNumber: true }).then((others) => {
       for (var k in others) {
-        for (var j in others[k].phoneNumbers)
-          this.phoneNumberList.push(others[k].phoneNumbers[j])
+        for (var j in others[k].phoneNumbers) {
+          let p = others[k].phoneNumbers[j].value.replace(/\s/g, '')
+          this.phoneNumberList.push(p)
+          this.displayNameList[p] = others[k].displayName
+        }
       }
+    }).catch((error) => {
+      console.log(error)
     })
   }
 
@@ -109,41 +116,64 @@ export class HomePage {
     this.ionViewDidLoad2()
   }
 
-  ionViewDidLoad2() {
+  async ionViewDidLoad2() {
+
+    let p = await this.geolocation.getCurrentPosition()
+    this.coords = p.coords
+    let wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
+
     this.map = new AMap.Map('container', {
       zoom: 23,
       expandZoomRange: true,
       resizeEnable: true,
-      center: [112.90793486290448, 28.203039376444476]
+      center: wgs84togcj02
     })
 
     this.marker = new AMap.Marker({
       content: `<div class= "people">
           <div class="say">
           <em></em><span></span>
-          <div class="says"> That's&nbsp;a&nbsp;big&nbsp;Twinkie.</div>
+          <div class="says"><center>我</center></div>
           </div>
           <img class= "head-portrait" src = "assets/img/winston.jpg" />
           </div>`,
-      map: this.map
+      map: this.map,
+      visible: true,
+      position: wgs84togcj02
     })
+
+    for (var k in this.phoneNumberList) {
+      this.peoples[this.phoneNumberList[k]] = new AMap.Marker({
+        content: `<div class= "people">
+            <div class="say">
+            <em></em><span></span>
+            <div class="says p${this.phoneNumberList[k]}"><center>${this.displayNameList[this.phoneNumberList[k]]}</center></div>
+            </div>
+            <img class="head-portrait" src="assets/img/winston.jpg" />
+            </div>`,
+        map: this.map,
+        visible: false
+      })
+    }
   }
 
   async next() {
-    // let rs = await http.get(`http://sltruman.xicp.net:49549/verify?_id=${this.phoneNumber}`)
-    // if (!rs.body) {
-    //   alert(`请求验证码失败！`)
-    //   return
-    // }
     this.phoneNumber = $('.phone-numbers')[0].value
+
+    let rs = await http.get(`http://sltruman.xicp.net:49549/verify?_id=${this.phoneNumber}`)
+    if (!rs.body) {
+      alert(`请求验证码失败！`)
+      return
+    }
+
 
     $('.step-1').css('display', 'none')
     $('.step-2').css('display', 'flex')
 
     let i = 0
     this.timer = setInterval(() => {
-      if (i++ < 4) {
-        $('.progress-value').css('width', i * (100 / 4))
+      if (i++ < 40) {
+        $('.progress-value').css('width', i * (100 / 40))
       }
       else {
         clearInterval(this.timer)
@@ -170,7 +200,6 @@ export class HomePage {
     if (rs.body) {
       console.log('登陆成功')
       await this.storage.set('user', { phoneNumber: this.phoneNumber, password: this.password })
-      this.displayHome()
     } else {
       console.log('登陆失败')
       $('.step-4').css('display', 'none')
@@ -200,19 +229,34 @@ export class HomePage {
     document.getElementById('tip').innerHTML = str.join('<br>')
     this.coords = data.coords
 
-    let rs = await http.getXhr(`http://sltruman.xicp.net:49549/self?${qs.stringify({ longitude: this.coords.longitude, latitude: this.coords.latitude })}`)
-    console.log(rs.body)
+    if (this.coords.longitude != data.coords.longitude
+      || this.coords.latitude != data.coords.latitude) {
+      let rs = await http.getXhr(`http://sltruman.xicp.net:49549/self?${qs.stringify({ longitude: this.coords.longitude, latitude: this.coords.latitude })}`)
+      console.log(rs.body)
 
-    rs = await http.getXhr(`http://sltruman.xicp.net:49549/others?${qs.stringify({ list: this.phoneNumberList })}`)
+      let wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
+      this.marker.setPosition(wgs84togcj02)
+      this.marker.show()
+    }
+
+    let rs = await http.getXhr(`http://sltruman.xicp.net:49549/others?${qs.stringify({ list: this.phoneNumberList })}`)
     console.log(rs.body)
+    let p = eval(rs.body)
+
+    try {
+      for (let k in p) {
+        let wgs84togcj02 = ctf.wgs84togcj02(p[k].longitude, p[k].latitude);
+        this.peoples[p[k]._id].setPosition(wgs84togcj02)
+        this.peoples[p[k]._id].show()
+      }
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   atSelf() {
-    var wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
-    console.log(wgs84togcj02)
-
+    let wgs84togcj02 = ctf.wgs84togcj02(this.coords.longitude, this.coords.latitude);
     this.map.setCenter(wgs84togcj02)
-    this.marker.setPosition(wgs84togcj02)
   }
 
   displaySign() {

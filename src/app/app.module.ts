@@ -7,7 +7,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Keyboard } from '@ionic-native/keyboard'
 import { Contacts } from '@ionic-native/contacts';
-
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { AppMinimize } from '@ionic-native/app-minimize';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { TestPage } from '../pages/test/test';
@@ -35,7 +36,9 @@ import { TestPage } from '../pages/test/test';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Geolocation,
     Keyboard,
-    Contacts
+    Contacts,
+    BackgroundMode,
+    AppMinimize
   ]
 })
 export class AppModule { }
