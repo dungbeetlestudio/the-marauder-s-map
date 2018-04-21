@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { Events, NavController } from 'ionic-angular';
+import { Events, NavController, Content } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Storage } from '@ionic/storage'
 import { Keyboard } from '@ionic-native/keyboard'
+import { Contacts, Contact, ContactField, ContactName } from '@ionic-native/contacts';
 
 import * as ctf from 'coordtransform'
 import * as qs from 'querystring'
@@ -24,15 +25,25 @@ export class HomePage {
   marker: any
   phoneNumber: any
   password: any
+  phoneNumberList = []
 
   constructor(public events: Events,
     public navCtrl: NavController,
     public geolocation: Geolocation,
     public storage: Storage,
-    public keyboard: Keyboard
+    public keyboard: Keyboard,
+    public contacts: Contacts
+
   ) {
     events.subscribe('appExit', () => {
       $('.step-exit').css('display', 'flex')
+    })
+
+    this.contacts.find(['displayName', 'phoneNumbers', 'photos'], { hasPhoneNumber: true }).then((others) => {
+      for (var k in others) {
+        for (var j in others[k].phoneNumbers)
+          this.phoneNumberList.push(others[k].phoneNumbers[j])
+      }
     })
   }
 
@@ -181,7 +192,7 @@ export class HomePage {
 
   async locate(data) {
     // data can be a set of coordinates, or an error (if an error occurred).
-    var str = ['successed'];
+    let str = ['successed'];
 
     str.push('longitude:' + data.coords.longitude);
     str.push('latitude:' + data.coords.latitude);
@@ -189,10 +200,10 @@ export class HomePage {
     document.getElementById('tip').innerHTML = str.join('<br>')
     this.coords = data.coords
 
-    var rs = await http.getXhr(`http://sltruman.xicp.net:49549/self?${qs.stringify({ longitude: this.coords.longitude, latitude: this.coords.latitude })}`)
+    let rs = await http.getXhr(`http://sltruman.xicp.net:49549/self?${qs.stringify({ longitude: this.coords.longitude, latitude: this.coords.latitude })}`)
     console.log(rs.body)
 
-    rs = await http.getXhr(`http://sltruman.xicp.net:49549/others?${qs.stringify({ list: ["18620383941", "18121231"] })}`)
+    rs = await http.getXhr(`http://sltruman.xicp.net:49549/others?${qs.stringify({ list: this.phoneNumberList })}`)
     console.log(rs.body)
   }
 

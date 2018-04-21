@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Keyboard } from '@ionic-native/keyboard'
+import { Contacts } from '@ionic-native/contacts';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -33,7 +34,8 @@ import { TestPage } from '../pages/test/test';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Geolocation,
-    Keyboard
+    Keyboard,
+    Contacts
   ]
 })
 export class AppModule { }
